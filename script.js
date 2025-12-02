@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- ELEMENTOS DEL DOM ---
+    
     const themeToggleButton = document.getElementById('theme-toggle');
     const langToggleButton = document.getElementById('lang-toggle');
     const copyrightYearSpan = document.getElementById('copyright-year');
     const htmlElement = document.documentElement;
     const downloadCvLink = document.getElementById('cv-download');
     
-    // Elementos para Copiar Email
+    
     const copyEmailBtn = document.getElementById('copy-email-btn');
     const emailText = document.getElementById('email-text');
     const copyToast = document.getElementById('copy-toast');
 
-    // Variable global para almacenar las traducciones cargadas
+    
     let translations = {};
 
-    // --- FUNCIÓN PARA CAMBIAR IDIOMA ---
+    
     const setLanguage = (lang) => {
         document.querySelectorAll('[data-translate-key]').forEach(element => {
             const key = element.dataset.translateKey;
-            // Comprueba que la traducción exista antes de aplicarla
+            
             if (translations[lang] && translations[lang][key]) {
                 element.innerHTML = translations[lang][key];
             }
         });
 
-        // Lógica para la descarga del CV
+        
         if (lang === 'en') {
             downloadCvLink.href = 'downloads/cv-tomas-english.pdf';
             downloadCvLink.setAttribute('download', 'cv-tomas-english.pdf');
@@ -33,28 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
             downloadCvLink.setAttribute('download', 'cv-tomas-spanish.pdf');
         }
 
-        // Actualiza los 'title' para accesibilidad (A11y)
+        
         downloadCvLink.title = translations[lang].downloadCvTitle;
         langToggleButton.title = translations[lang].langToggleTitle;
         themeToggleButton.title = translations[lang].themeToggleTitle;
         
-        // Traducir título de botón copiar
+        
         if (copyEmailBtn) {
             copyEmailBtn.title = translations[lang].copyEmailTitle;
         }
 
-        // Actualiza los atributos de la página
+        
         htmlElement.setAttribute('lang', lang);
         langToggleButton.textContent = lang === 'en' ? 'ES' : 'EN';
     };
     
-    // --- LÓGICA PARA EL CAMBIO DE TEMA ---
+    
     const setTheme = (theme) => {
         htmlElement.setAttribute('data-theme', theme);
     };
 
-    // --- FUNCIÓN DE INICIALIZACIÓN ---
-    // Esta función se ejecutará después de cargar las traducciones
+    
     const initializeApp = () => {
         themeToggleButton.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
@@ -70,17 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('language', newLang);
         });
 
-        // Lógica para Copiar Email
+        
         if (copyEmailBtn) {
             copyEmailBtn.addEventListener('click', () => {
                 const textToCopy = emailText.textContent;
                 navigator.clipboard.writeText(textToCopy).then(() => {
-                    // Éxito al copiar
+                    
                     const currentLang = htmlElement.getAttribute('lang') || 'en';
                     copyToast.textContent = translations[currentLang].copySuccess;
                     copyToast.classList.add('show');
                     
-                    // Ocultar el mensaje después de 3 segundos
+                    
                     setTimeout(() => {
                         copyToast.classList.remove('show');
                     }, 3000);
@@ -90,26 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-// --- INICIALIZACIÓN AL CARGAR LA PÁGINA ---
+
         const savedTheme = localStorage.getItem('theme') || 'dark';
         setTheme(savedTheme);
 
-        // 1. Detectar si hay un parámetro ?lang= en la URL
+        
         const urlParams = new URLSearchParams(window.location.search);
         const urlLang = urlParams.get('lang');
 
-        // 2. Decidir el idioma final (Prioridad: URL > LocalStorage > Default 'en')
+        
         let finalLang = urlLang || localStorage.getItem('language') || 'en';
 
-        // 3. Validación de seguridad (solo permitimos 'es' o 'en')
+        
         if (finalLang !== 'es' && finalLang !== 'en') {
             finalLang = 'en';
         }
 
-        // 4. Aplicar idioma
+        
         setLanguage(finalLang);
 
-        // 5. Si vino por URL, guardamos la preferencia para futuras visitas
+        
         if (urlLang) {
             localStorage.setItem('language', finalLang);
         }
@@ -117,8 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         copyrightYearSpan.textContent = new Date().getFullYear();
     };
 
-    // --- CARGAR TRADUCCIONES Y LUEGO INICIALIZAR LA APP ---
-    // Usamos fetch para cargar el archivo JSON de forma asíncrona
+    
     fetch('translations.json')
         .then(response => {
             if (!response.ok) {
@@ -127,11 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            translations = data; // Almacenamos las traducciones en nuestra variable
-            initializeApp();    // Ahora que tenemos los datos, iniciamos la app
+            translations = data; 
+            initializeApp();    
         })
         .catch(error => {
             console.error("Error loading translations:", error);
-            // Si falla, la página aún funcionará, pero solo con el texto HTML por defecto
+
         });
 });

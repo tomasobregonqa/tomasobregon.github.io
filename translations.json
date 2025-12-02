@@ -9,7 +9,7 @@
     
     "profileP1": "QA Analyst -",
     "profileP2Link": " ISTQB-certified",
-    "profileP3": " - with experience in test case design and execution, defect reporting, and quality assurance in agile environments. Specialized in QC/QA of websites and webapps, with a keen attention to detail and a proactive approach to improving the quality and efficiency of software projects.",
+    "profileP3": " - specialized in Quality Control (QC/QA) for Websites and Webapps in Agile (Scrum/Kanban) environments. Experienced in the full testing cycle, from test case design to critical defect prevention before production. Proficient with key tools like Jira for bug management, Postman for API testing, and focused on the continuous improvement of project quality, efficiency, and accessibility (A11y).",
     
     "copyEmailTitle": "Copy email address",
     "copySuccess": "Address copied to clipboard",
@@ -66,7 +66,7 @@
 
     "profileP1": "Analista de QA ",
     "profileP2Link": "certificado por ISTQB",
-    "profileP3": " con experiencia en diseño y ejecución de casos de prueba, reporte de defectos y aseguramiento de calidad en entornos ágiles. Especializado en QC/QA de sitios y aplicaciones web, con gran atención al detalle y un enfoque proactivo para mejorar la calidad y eficiencia de los proyectos de software.",
+    "profileP3": " especializado en Control de Calidad (QC/QA) de Websites y Webapps en entornos Agile (Scrum/Kanban). Con experiencia en el ciclo completo de pruebas, desde el diseño de casos hasta la prevención de defectos críticos antes de la producción. Dominio de herramientas clave como Jira para gestión de bugs, Postman para pruebas de API, y enfocado en la mejora continua de la calidad, eficiencia y accesibilidad (A11y) de los proyectos.",
 
     "copyEmailTitle": "Copiar dirección de email",
     "copySuccess": "Dirección copiada en el portapapeles",

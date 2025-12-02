@@ -3,7 +3,7 @@ html {
 }
 
 :root {
-    /* Light Mode Variables */
+    
     --bg-color: #ffffff;
     --text-primary: #111827;
     --text-secondary: #4B5563;
@@ -14,7 +14,7 @@ html {
 }
 
 html[data-theme='dark'] {
-    /* Dark Mode Variables */
+    
     --bg-color: #000000;
     --text-primary: #F9FAFB;
     --text-secondary: #9CA3AF;
@@ -110,9 +110,9 @@ a:hover { color: var(--text-primary); text-decoration: underline; }
 .contact-info a:hover { color: var(--text-primary); text-decoration: none; }
 .contact-info a i { width: 18px; height: 18px; }
 
-/* --- INICIO: Estilos para Copiar Email (con 'position: absolute' para centrado) --- */
+
 .contact-item {
-    position: relative; /* Contenedor para el posicionamiento absoluto */
+    position: relative; 
     display: flex; 
     align-items: center; 
     gap: 0.5rem;
@@ -133,18 +133,18 @@ a:hover { color: var(--text-primary); text-decoration: underline; }
     align-items: center;
     padding: 2px;
     
-    position: absolute; /* Saca el botón del layout para no afectar el centrado */
-    left: 100%; /* Lo posiciona al final del texto */
-    top: 50%; /* Lo centra verticalmente */
+    position: absolute; 
+    left: 100%; 
+    top: 50%; 
     transform: translateY(-50%);
-    margin-left: 0.5rem; /* Le da espacio desde el texto */
+    margin-left: 0.5rem; 
 
-    opacity: 0; /* Oculto por defecto */
+    opacity: 0; 
     transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .contact-item:hover #copy-email-btn {
-    opacity: 1; /* Visible al hacer hover */
+    opacity: 1; 
 }
 
 #copy-email-btn:hover {
@@ -152,11 +152,11 @@ a:hover { color: var(--text-primary); text-decoration: underline; }
 }
 
 #copy-email-btn i {
-    width: 16px; /* Icono pequeño */
+    width: 16px; 
     height: 16px;
 }
 
-/* Estilos para el mensaje de confirmación (Toast) */
+
 .toast {
     visibility: hidden;
     opacity: 0;
@@ -177,7 +177,7 @@ a:hover { color: var(--text-primary); text-decoration: underline; }
     visibility: visible;
     opacity: 1;
 }
-/* --- FIN: Estilos para Copiar Email --- */
+
 
 
 #cv-download {
@@ -203,7 +203,7 @@ a:hover { color: var(--text-primary); text-decoration: underline; }
 section { margin-bottom: 4rem; border-top: 1px solid var(--border-color); padding-top: 3rem; }
 #profile-summary p { color: var(--text-secondary); }
 
-/* Estilo para enlace ISTQB en el perfil (Estilo Sutil) */
+
 #profile-summary p a {
     color: inherit;
     text-decoration: underline;
@@ -213,7 +213,7 @@ section { margin-bottom: 4rem; border-top: 1px solid var(--border-color); paddin
 #profile-summary p a:hover {
     color: var(--text-primary);
 }
-/* --- FIN Estilo ISTQB --- */
+
 
 
 .job { margin-bottom: 2.5rem; }
